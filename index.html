@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Boxpunch</title>
+    <link href="reset.css" rel="stylesheet" type="text/css">
+    <link href="prism.css" rel="preload stylesheet" as="style">
+    <link href="prism.js"  rel="preload" as="script">
+    <link href="typewriter.js"  rel="preload" as="script">
+    <link href="layout.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu+Mono" rel="stylesheet">
+</head>
+
+
+<body>
+    <section id="main">
+        <div id="punch">Q</div>
+        <p style="font-weight: bold; font-size: 120%">
+            How does one punch out the corner of an element and put something in the space created?
+        </p>
+        <p>
+            Answer: you don't, at least not structurally. But the appearance can be achieved very easily just by using
+            floated elements and, when necessary, some tiny negative margins. In this example, I've wrapped the "Q" in a
+            <code class="language-css">div</code> of its own and then floated the <code class="language-css">div</code> over. Then I give the float some nice
+            padding and margins, and center the character. Finally, I set thick white borders on the float, which
+            matches nicely with the white document background-- but only the right and bottom borders are made thick.
+            The top and left borders are set to zero. To wit:
+        </p>
+        <pre><code class="language-css line-numbers" id="typewriter">div#punch {
+    float: left;
+    font-size: 500%;
+    font-family: 'Times New Roman', Times, serif;
+    width: 1.2em;
+    text-align: center;
+    padding: 0.1em 0;
+    background: #346;
+    color: white;
+    border: solid white 1px;
+    border-width: 0 0.2em 0.2em 0;
+    margin: 0 0.5em 0.2em 0;
+}</code></pre>
+        <p>
+            It all adds up to the appearance of a block that's had a corner punched out and replaced, and the text in
+            the block reflowed to go around the punchout. And, in a sense, that's exactly what happened. But what if I
+            want to put a border around the main block of text? How do I keep it from encircling my punched-out corner?
+            Even worse, how do I get that border to run along the edge of the punchout?
+        </p>
+    </section>
+
+    <section id="main2">
+        <div id="punch2"><img src="bettermagnifyingglass.jpg" alt="magnifying glass icon"></div>
+        <h2>Boxpunch</h2>
+        <p>
+            So we can do it after all! (Assuming we aren't using IE5.x/Win or IE6/Win, that is, which isn't able to keep
+            up. If you want to see the variant that does work in IE/Win, <a href="https://meyerweb.com/eric/css/edge/boxpunch/demo-ie.html">go ahead</a>.) Notice
+            how the border of the main <code class="language-css">div</code> is bent out of a rectangle so that it runs inside the floated
+            element. Okay, I'm lying. That isn't what's really happening. Instead, I set one-pixel black borders on the
+            right and bottom edges of the float, and no border at all on the top and left edges. Then the float is
+            pulled one pixel up and one pixel to the left, which is accomplished by setting <code class="language-css">-1px</code> margins on
+            those sides. This causes the float to overlap the border set on the main <code class="language-css">div</code>, thus covering up
+            the black border with the white background of the float. The code looks like this:
+        </p>
+        <pre><code class="language-css line-numbers">div#main2 {
+    border: 1px solid black;
+}
+
+div#punch2 {
+    float: left; 
+    width: 25%; 
+    text-align: center; 
+    background: white; 
+    color: black; 
+    border: solid black 1px; 
+    border-width: 0 1px 1px 0; 
+    padding: 0 10px 5px 0; 
+    margin: -1px 25px 10px -1px;
+}
+
+div#punch2 img {
+    max-width: 100%;
+}</code></pre>
+        <p>
+            As in the <a href="http://www.meyerweb.com/eric/css/edge/curvelicious/demo.html">curvelicious demo</a>, the
+            <code class="language-css">h1</code> at the top is simply styled as normal, and its borders and background "slide under" the
+            floated element. This is expected behavior in CSS2. If you were to set a left border on the <code class="language-css">h1</code>,
+            you'd have to make it at least <code class="language-css">111px</code> wide before it could be seen at all! Well, unless it
+            become so tall that it was taller than the float. Then you'd be able to see it below the float. If your
+            browser supports text zooming, try increasing the text size until the <code class="language-css">h1</code> is taller than the
+            float. You should see what I mean then.
+        </p>
+    </section>
+
+    <section id="main3">
+        <div id="punch3">Like this text? It can be yours for just $19.99! But wait! There's more! If you call in the
+            next ten minutes, we'll throw in a copy of Amaya absolutely free! Don't delay-- act now!</div>
+        <h2>Again with the punching</h2>
+        <p>
+            Of course, if one is floating elements, then one can float anything, not just images. In this case I've
+            floated a <codeclass="language-css">div</code>, but it could have been any text element. The borders and margins are set up just
+            like last time. Think of it-- you could put a small navigation panel in that float, or anything else that
+            takes your fancy. A quotation, perhaps? How about a small table of icons or decorative images? You could
+            just float the table itself and be done. Pretty cool, eh?
+        </p>
+        <p>
+            For that matter, why restrict yourself to floating things into the corner of the box? How about going
+            straight to the right or left from within the block?
+        </p>
+
+        <div id="punch3b">"Better to stick to what's needed."</div>
+
+        <p>
+            It's the same basic principle as before, only this time we need to draw three of the borders and only pull
+            the float one pixel to the left. We could keep pulling it one pixel upward as well, but that's no necessary
+            here and could (in theory) lead to complications. Better to stick to what's needed. Again, any element could
+            be floated, so you could float links for further reading, more decorative images like folder tabs, a list of
+            short ideas or points that are related to the main text, a table of figures, or the familiar "pull quote"
+            style of taking a short phrase in the text and repeating it in larger text. Like we see here.
+        </p>
+        <pre><code class="language-css line-numbers">div#punch3b {
+    float: right;
+    width: 25%;
+    text-align: left;
+    font-size: 140%;
+    font-weight: bold;
+    font-style: italic;
+    padding: 1em;
+    text-indent: -0.5em;
+    background: white;
+    color: black;
+    border: solid black 1p;
+    border-width: 1px 0 1px 1px;
+    margin: 0.2em -1px 0.2em 0.5e;
+}</code></pre>
+        <p>
+            Note that, due to rounding errors, Mozilla (and thus Netscape 6.x) may not move a right-floated element over
+            as far as it should be. If you resize your browser window enough times, you'll see a black border appear to
+            the right of the pull quote. That's because the float is one pixel too far to the left, and the main
+            <code class="language-css">div</code>'s border becomes visible. Hopefully they'll fix that eventually.
+        </p>
+        <p>
+            There are any number of ways this concept could be extended, really. The only limit is your imagination! And
+            negative margins don't have to be restricted to floats, either. Consider <a href="https://meyerweb.com/eric/css/edge/boxpunch/demo2.html">this fairly
+                irregular-looking page</a> and how it's been created. Some floats, some normal-flow elements, a few
+            one-pixel negative margins, and you've got some twisty layouts! I just hope Wired doesn't sue me for
+            stylistic theft...
+        </p>
+
+
+        <h3>Jump to</h3>
+        <ul>
+            <li><a href="https://meyerweb.com/eric/css/edge/index.html">css/edge home</a></li>
+            <li><a href="https://meyerweb.com/eric/css/edge/boxpunch/demo.html">boxpunch 2</a></li>
+            <li><a href="https://meyerweb.com/eric/css/edge/boxpunch/demo-ie.html">boxpunch-IE</a></li>
+        </ul>
+
+    </section>
+    <script src="prism.js"></script>
+</body>
+
+</html>

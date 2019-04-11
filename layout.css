@@ -1,0 +1,206 @@
+body {
+    background: white;
+    color: black;
+}
+
+:any-link:focus { 
+    color: rgb(238, 46, 46); 
+}
+
+:any-link:active { 
+    color: white; 
+}
+
+:any-link:visited {
+    color: rgb(31, 5, 66); 
+}
+
+section#main,
+section#main2,
+section#main3 {
+    width: 75%;
+    margin: 1em 12.5% 2em;
+    background: #BDCCF6;
+    font-family: Raleway, sans-serif;
+}
+
+div#punch {
+    float: left;
+    font-size: 500%;
+    font-family: 'Times New Roman', Times, serif;
+    width: 1.2em;
+    text-align: center;
+    padding: 0.1em 0.1em 0;
+    background: #346;
+    color: white;
+    border: solid white 1px;
+    border-width: 0 0.2em 0.2em 0;
+    margin: 0 0.5em 0.2em 0;
+}
+
+section#main p {
+    padding: 0.5em 1em;
+    margin: 0;
+}
+
+section#main2 {
+    border: 1px solid black;
+}
+
+div#punch2 {
+    float: left;
+    width: 25%; /*width: 143px;*/
+    /*height: 100px;*/
+    text-align: center;
+    background: white;
+    color: black;
+    border: solid black 1px;
+    border-width: 0 1px 1px 0;
+    padding: 0 10px 5px 0;
+    margin: -1px 25px 10px -1px;
+}
+
+div#punch2 img {
+    /*height: 100px;*/
+    max-width: 100%;  /*width: 143px;*/
+}
+
+section#main2 h2 {
+    margin: 0;
+    padding: 0.25em 1em 0.125em 0;
+    background: #346;
+    text-align: right;
+    text-transform: lowercase;
+    font-family: sans-serif;
+    border-bottom: 1px solid #68A;
+    color: white;
+}
+
+section#main2 p {
+    padding: 0.5em 1em;
+    margin: 0;
+}
+
+section#main3 {
+    border: 1px solid black;
+}
+
+div#punch3 {
+    float: left;
+    width: 33%;
+    text-align: left;
+    font-size: 90%;
+    padding: 1em;
+    background: white;
+    color: black;
+    border: solid black 1px;
+    border-width: 0 1px 1px 0;
+    margin: -1px 0.5em 0.2em -1px;
+}
+
+section#main3 h2 {
+    margin: 0;
+    padding: 0.25em 1em 0.125em 0;
+    background: #346;
+    text-align: right;
+    text-transform: lowercase;
+    font-family: sans-serif;
+    border-bottom: 1px solid #68A;
+    color: white;
+}
+
+section#main3 p {
+    padding: 0.5em 1em;
+    margin: 0;
+}
+
+div#punch3b {
+    float: right;
+    width: 25%;
+    text-align: left;
+    font-size: 140%;
+    font-weight: bold;
+    font-style: italic;
+    padding: 1em;
+    text-indent: -0.5em;
+    background: white;
+    color: black;
+    border: solid black 1px;
+    border-width: 1px 0 1px 1px;
+    margin: 0.2em -1px 0.2em 0.5em;
+}
+
+h2 {
+    font-size: 120%;
+}
+
+h3 {
+    margin-left: 1em;  
+    margin-bottom: 1em;
+}
+
+ul {
+    margin-left: 3em; 
+    margin-bottom: 1em;
+}
+
+.css-typing span {
+    border-right: .15em solid orange;
+    font-family: "Courier";
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .css-typing span:nth-child(1) {
+    width: 7.3em;
+    -webkit-animation: type 2s steps(40, end);
+    animation: type 2s steps(40, end);
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  .css-typing span:nth-child(2) {
+    width: 11.5em;
+    opacity: 0;
+    -webkit-animation: type2 2s steps(40, end);
+    animation: type2 2s steps(40, end);
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  .css-typing span:nth-child(3) {
+    width: 7.3em;
+    opacity: 0;
+    -webkit-animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
+    animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+
+
+
+
+/*
+code::after {
+	content: "|";
+	animation: blink 500ms linear infinite alternate;
+}
+
+@-webkit-keyframes blink{
+	0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+@-moz-keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+
+@keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}*/
